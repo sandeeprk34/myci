@@ -46,13 +46,13 @@
 	<repository>
 		<id>deployment</id>
 		<name>Release</name>
-		<url>http://35.161.214.139:8081/nexus/content/repositories/repor/</url>
+		<url>http://18.236.158.149:8081/nexus/content/repositories/repor/</url>
 	</repository>
  
 	<snapshotRepository>
 		<id>deployment</id>
 		<name>Snapshot Releases</name>
-		<url>http://35.161.214.139:8081/nexus/content/repositories/repos/</url>
+		<url>http://18.236.158.149:8081/nexus/content/repositories/repos/</url>
 	</snapshotRepository>
 
 </distributionManagement>
