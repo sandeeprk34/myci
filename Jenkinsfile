@@ -2,35 +2,28 @@ pipeline {
     agent any 
 	
     stages {
-	stage('sdd'){
-            steps {
-		    sh 'export MAVEN_HOME=/opt/maven'
-		    sh 'export PATH=$PATH:$MAVEN_HOME/bin'
-	    }
-	}
-			
         stage('Maven Compile') { 
             steps {
-	        
+	        withMaven(maven : 'mymaven') {
 		     sh 'mvn clean compile'
 	        }
                 
             }
-        
+        }
         stage('Maven Test') { 
             steps {
-	       
+	       withMaven(maven : 'mymaven') {
 	           sh 'mvn test'
                }
             }
-        
+        }
         stage('Maven Package') { 
             steps {
-                
+                withMaven(maven : 'mymaven') {
 	             sh 'mvn package'
             }
         }
-    
+    }
        
 
    }
