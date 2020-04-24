@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mypro.mavensample</groupId>
   <artifactId>sample</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>7.0</version>
   <name>polo7</name>
   <url>http://maven.apache.org</url>
