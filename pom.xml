@@ -8,7 +8,7 @@
   <name>polo7</name>
   <url>http://maven.apache.org</url>
 	<properties>
-		<maven.compiler.release>11</maven.compiler.release>
+		
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
