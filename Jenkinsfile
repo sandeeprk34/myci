@@ -31,7 +31,7 @@ pipeline {
             }
         }
 	    
-	    sh 'sudo chmod 666 /var/run/docker.sock'
+	    
 	stage('docker build ') { 
             steps {
 	             sh 'docker build -t hw .'
