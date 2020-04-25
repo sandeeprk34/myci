@@ -24,6 +24,14 @@ pipeline {
             }
         }
     }
+	    
+	    stage('Fix the docker permission issue') { 
+            steps {
+	             sh 'sudo chmod 666 /var/run/docker.sock'
+            }
+        }
+	    
+	    sh 'sudo chmod 666 /var/run/docker.sock'
 	stage('docker build ') { 
             steps {
 	             sh 'docker build -t hw .'
