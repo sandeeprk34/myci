@@ -34,7 +34,7 @@ pipeline {
 	    
 	stage('docker build ') { 
             steps {
-	             sh 'docker build -t hw .'
+	             sh 'docker build -t sample .'
             }
         }
 	 stage('docker images') { 
@@ -45,7 +45,7 @@ pipeline {
          
 	    stage('docker tag') { 
             steps {
-	             sh 'docker tag hw gcr.io/mystic-impulse-245222/hw'
+	             sh 'docker tag hw gcr.io/mystic-impulse-245222/sample'
             }
         }
 	    stage('docker auth') { 
@@ -56,7 +56,7 @@ pipeline {
 	   
 	    stage('docker push') { 
             steps {
-	             sh 'docker push gcr.io/mystic-impulse-245222/hw'
+	             sh 'docker push gcr.io/mystic-impulse-245222/sample'
             }
         }
       
@@ -70,7 +70,7 @@ pipeline {
 
     stage('Deploy the dokcer base image in Kubernetes') {
 	    steps{
-             sh 'kubectl create deployment mydep2 --image=gcr.io/mystic-impulse-245222/hw'
+             sh 'kubectl create deployment mydep2 --image=gcr.io/mystic-impulse-245222/sample'
 	    }
     }
 
