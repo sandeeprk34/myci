@@ -48,6 +48,12 @@ pipeline {
 	             sh 'docker tag hw gcr.io/mystic-impulse-245222/hw:1.0'
             }
         }
+	    stage('docker auth') { 
+            steps {
+	             sh 'gcloud auth configure-docker'
+            }
+        }
+	    gcloud auth configure-docker
 	    
 	    stage('docker push') { 
             steps {
