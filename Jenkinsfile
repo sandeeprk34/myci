@@ -45,7 +45,7 @@ pipeline {
          
 	    stage('docker tag') { 
             steps {
-	             sh 'docker tag hw gcr.io/mystic-impulse-245222/sample'
+	             sh 'docker tag sample gcr.io/mystic-impulse-245222/sample'
             }
         }
 	    stage('docker auth') { 
@@ -67,19 +67,16 @@ pipeline {
              sh 'gcloud container clusters create --zone us-central1-a --network sanvpc mycluster3 --num-nodes=2'
 	   }
     }
-
-    stage('Deploy the dokcer base image in Kubernetes') {
+	    
+	    stage('depppp'){
 	    steps{
-             sh 'kubectl create deployment mydep3 --image=gcr.io/mystic-impulse-245222/sample'
+             sh 'kubectl apply -f tomcat.yml'
+             sleep 100
 	    }
     }
 
-    stage('Create a LoadBalancer Service to expose the url'){ 
-	    steps{
-             sh 'kubectl expose deployment mydep3 --type=LoadBalancer --port 80 --target-port 8080'
-             sleep 120 // seconds
-	    }
-    }
+
+    
     
     stage('Get Service or the External IP'){
 	    steps{
