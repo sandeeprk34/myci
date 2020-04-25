@@ -45,7 +45,7 @@ pipeline {
          
 	    stage('docker tag') { 
             steps {
-	             sh 'docker tag hw gcr.io/mystic-impulse-245222/hw:1.0'
+	             sh 'docker tag hw gcr.io/mystic-impulse-245222/hw'
             }
         }
 	    stage('docker auth') { 
@@ -56,7 +56,7 @@ pipeline {
 	   
 	    stage('docker push') { 
             steps {
-	             sh 'docker push gcr.io/mystic-impulse-245222/hw:1.0'
+	             sh 'docker push gcr.io/mystic-impulse-245222/hw'
             }
         }
       
