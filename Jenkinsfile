@@ -72,7 +72,7 @@ pipeline {
 	    steps{
              sh 'kubectl get service'
              sleep 100
-		    ]
+	    }
     }
 
     stage('Delete Service') {
