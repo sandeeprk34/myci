@@ -29,7 +29,7 @@ pipeline {
 	             sh 'docker build -t hw .'
             }
         }
-	 stage('docker build ') { 
+	 stage('docker images') { 
             steps {
 	             sh 'docker images'
             }
