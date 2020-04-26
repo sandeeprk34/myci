@@ -34,7 +34,7 @@ pipeline {
 	    
 	stage('docker build ') { 
             steps {
-	             sh 'docker build -t image3 .'
+	             sh 'docker build -t image3:v1 .'
             }
         }
 	 stage('docker images') { 
@@ -45,7 +45,7 @@ pipeline {
          
 	    stage('docker tag') { 
             steps {
-	             sh 'docker tag image3 gcr.io/mystic-impulse-245222/image3'
+	             sh 'docker tag image3 gcr.io/mystic-impulse-245222/image3:v1'
             }
         }
 	    stage('docker auth') { 
@@ -56,7 +56,7 @@ pipeline {
 	   
 	    stage('docker push') { 
             steps {
-	             sh 'docker push gcr.io/mystic-impulse-245222/image3'
+	             sh 'docker push gcr.io/mystic-impulse-245222/image3:v1'
             }
         }
       
