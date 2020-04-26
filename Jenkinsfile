@@ -91,16 +91,17 @@ pipeline {
               sleep 60
 	    }
     }
-     stage('Delete cluster'){
+     
+	stage('Delete cluster'){
 	     steps{
             sh 'gcloud container clusters delete mycluster3 --zone us-central1-a --quiet'
 	     }
      }
 	    
 	    
-	    stage('Delete cluster'){
+	    stage('Delete image'){
 	     steps{
-            sh 'gcloud container images delete gcr.io/mystic-impulse-245222/sample  --quiet'
+                 sh 'gcloud container images delete gcr.io/mystic-impulse-245222/sample  --quiet'
 	     }
      }
 
