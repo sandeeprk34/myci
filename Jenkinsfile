@@ -87,7 +87,7 @@ pipeline {
 
     stage('Delete Service') {
 	    steps{
-              sh 'kubectl delete service mydep3'
+              sh 'kubectl delete service myservice3'
               sleep 60
 	    }
     }
