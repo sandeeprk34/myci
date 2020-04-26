@@ -61,12 +61,12 @@ pipeline {
         }
       
        
-	  stage('create K8s cluster') {
+	  /*stage('create K8s cluster') {
            steps{
 
              sh 'gcloud container clusters create --zone us-central1-a --network sanvpc mycluster3 --num-nodes=2'
 	   }
-    }
+    }*/
 	    
 	    stage('depppp'){
 	    steps{
