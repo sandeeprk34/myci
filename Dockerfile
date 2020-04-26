@@ -1,4 +1,4 @@
-FROM tomcat
+FROM tomcat:8.0
 MAINTAINER sandeep
 WORKDIR /
 # COPY path-to-your-application-war path-to-webapps-in-docker-tomcat
