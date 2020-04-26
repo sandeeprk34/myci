@@ -18,24 +18,37 @@ spec:
     spec:
       containers:
       - name: tomcat
-        image: gcr.io/mystic-impulse-245222/image3
+        image: gcr.io/mystic-impulse-245222/sample
         ports:
         - containerPort: 8080
-
+ ---
+ 
+kind: Service
+apiVersion: v1
+metadata:
+  name: tomcat-service
+spec:
+  selector:
+    app: tomcat
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
 
 ---
-apiVersion: v1
-kind: Service
+apiVersion: extensions/v1beta1
+kind: Ingress
 metadata:
-  name: myservice3
-  labels:
-    run: tomcat
+  name: tomcat-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ports:
-  - port: 80
-    targetPort: 8080
-  selector:
-    run: tomcat
-  type: LoadBalancer
-
+  rules:
+  - http:
+      paths:
+      - path: /sample
+        backend:
+          serviceName: tomcat-service
+          servicePort: 80
+          
 
