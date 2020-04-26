@@ -45,7 +45,7 @@ pipeline {
          
 	    stage('docker tag') { 
             steps {
-	             sh 'docker tag hw gcr.io/mystic-impulse-245222/sample'
+	             sh 'docker tag sample gcr.io/mystic-impulse-245222/sample'
             }
         }
 	    stage('docker auth') { 
