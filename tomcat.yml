@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: tomcat
-        image: gcr.io/mystic-impulse-245222/image3:v1
+        image: gcr.io/mystic-impulse-245222/image3
         ports:
         - containerPort: 8080
 
