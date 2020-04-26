@@ -21,8 +21,7 @@ spec:
         image: gcr.io/mystic-impulse-245222/sample
         ports:
         - containerPort: 8080
- ---
- 
+---
 kind: Service
 apiVersion: v1
 metadata:
