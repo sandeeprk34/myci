@@ -34,7 +34,7 @@ pipeline {
 	    
 	stage('docker build ') { 
             steps {
-	             sh 'docker build -t image3:v1 .'
+	             sh 'docker build -t image3 .'
             }
         }
 	 stage('docker images') { 
