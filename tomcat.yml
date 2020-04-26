@@ -37,3 +37,19 @@ spec:
   selector:
     run: tomcat
   type: LoadBalancer
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: tomcat-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /sample
+        backend:
+          serviceName: myservice3
+          servicePort: 80
