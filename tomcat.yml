@@ -3,52 +3,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydep3
-  labels:
-    app: tomcat
+  name: mydep2
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: tomcat
+      run: sampleweb
   template:
     metadata:
       labels:
-        app: tomcat
+        run: sampleweb
     spec:
       containers:
-      - name: tomcat
+      - name: sampleweb
         image: gcr.io/mystic-impulse-245222/sample
-        ports:
-        - containerPort: 8080
+
 ---
-kind: Service
+
 apiVersion: v1
+kind: Service
 metadata:
-  name: tomcat-service
+  name: myservice2
+  labels:
+    run: sampleweb
 spec:
-  selector:
-    run: tomcat
-  type: LoadBalancer
   ports:
-  - protocol: TCP
-    port: 80
+  - port: 80
     targetPort: 8080
-
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: tomcat-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /sample
-        backend:
-          serviceName: tomcat-service
-          servicePort: 80
-          
-
+  selector:
+    run: sampleweb
+  type: LoadBalancer
